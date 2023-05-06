@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 class Myregister extends StatefulWidget {
   const Myregister({Key? key}) : super(key: key);
 
@@ -12,9 +11,9 @@ class _MyregisterState extends State<Myregister> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
           image: DecorationImage(
-              image: AssetImage('assets/register.png'),fit: BoxFit.cover)) ,
+              image: AssetImage('assets/register.png'), fit: BoxFit.cover)),
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.transparent,
@@ -24,15 +23,19 @@ class _MyregisterState extends State<Myregister> {
         body: Stack(
           children: [
             Container(
-              padding: EdgeInsets.only(left: 35,top: 80),
-              child: Text('Create \nAccocunt',style: TextStyle(
-                color: Colors.white,
-                fontSize: 33,
-              ),),
+              padding: const EdgeInsets.only(left: 35, top: 80),
+              child: const Text(
+                'Create \nAccocunt',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 33,
+                ),
+              ),
             ),
             SingleChildScrollView(
               child: Container(
-                padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.28,
+                padding: EdgeInsets.only(
+                    top: MediaQuery.of(context).size.height * 0.28,
                     right: 35,
                     left: 35),
                 child: Column(
@@ -43,9 +46,8 @@ class _MyregisterState extends State<Myregister> {
                             filled: true,
                             hintText: 'Name',
                             border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(10)))
-                    ),
-                    SizedBox(
+                                borderRadius: BorderRadius.circular(10)))),
+                    const SizedBox(
                       height: 30,
                     ),
                     TextField(
@@ -54,9 +56,8 @@ class _MyregisterState extends State<Myregister> {
                             filled: true,
                             hintText: 'Email',
                             border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(10)))
-                    ),
-                    SizedBox(
+                                borderRadius: BorderRadius.circular(10)))),
+                    const SizedBox(
                       height: 30,
                     ),
                     TextField(
@@ -66,57 +67,56 @@ class _MyregisterState extends State<Myregister> {
                             filled: true,
                             hintText: 'Password',
                             border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(10)))
-                    ),
-                    SizedBox(
+                                borderRadius: BorderRadius.circular(10)))),
+                    const SizedBox(
                       height: 40,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [Text('Sign In',
-                        style: TextStyle(
-                            color: Color(0xff4c505b)
-                            ,fontSize: 27,
-                            fontWeight: FontWeight.w700),
-                      ),
+                      children: [
+                        const Text(
+                          'Sign In',
+                          style: TextStyle(
+                              color: Color(0xff4c505b),
+                              fontSize: 27,
+                              fontWeight: FontWeight.w700),
+                        ),
                         CircleAvatar(
                           radius: 30,
-                          backgroundColor: Color(0xff4c505b),
+                          backgroundColor: const Color(0xff4c505b),
                           child: IconButton(
                             color: Colors.white,
-                            onPressed: (){},
-                            icon: Icon(Icons.arrow_forward),
+                            onPressed: () {},
+                            icon: const Icon(Icons.arrow_forward),
                           ),
                         )
                       ],
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 40,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         TextButton(
-                            onPressed: (){
+                            onPressed: () {
                               Navigator.pushNamed(context, 'register');
                             },
-                            child: Text(
+                            child: const Text(
                               'Sign Up',
                               style: TextStyle(
                                   decoration: TextDecoration.underline,
                                   fontSize: 18,
-                                  color: Color(0xff4c505b)
-                              ),
+                                  color: Color(0xff4c505b)),
                             )),
                         TextButton(
-                            onPressed: (){},
-                            child: Text(
+                            onPressed: () {},
+                            child: const Text(
                               'Forgot Password',
                               style: TextStyle(
                                   decoration: TextDecoration.underline,
                                   fontSize: 18,
-                                  color: Color(0xff4c505b)
-                              ),
+                                  color: Color(0xff4c505b)),
                             )),
                       ],
                     ),
