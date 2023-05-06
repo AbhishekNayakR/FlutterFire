@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:screen/register.dart';
 
 class Mylogin extends StatefulWidget {
   const Mylogin({Key? key}) : super(key: key);
@@ -8,6 +9,7 @@ class Mylogin extends StatefulWidget {
 }
 
 class _MyloginState extends State<Mylogin> {
+  bool _passwordVisible = false;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -47,13 +49,28 @@ class _MyloginState extends State<Mylogin> {
                       height: 30,
                     ),
                     TextField(
-                        obscureText: true,
-                        decoration: InputDecoration(
-                            fillColor: Colors.grey.shade200,
-                            filled: true,
-                            hintText: 'Password',
-                            border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(10)))),
+                      obscureText: !_passwordVisible,
+                      decoration: InputDecoration(
+                        fillColor: Colors.grey.shade200,
+                        filled: true,
+                        hintText: 'Password',
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        suffixIcon: IconButton(
+                          icon: Icon(
+                            _passwordVisible
+                                ? Icons.visibility
+                                : Icons.visibility_off,
+                          ),
+                          onPressed: () {
+                            setState(() {
+                              _passwordVisible = !_passwordVisible;
+                            });
+                          },
+                        ),
+                      ),
+                    ),
                     const SizedBox(
                       height: 40,
                     ),
@@ -86,7 +103,11 @@ class _MyloginState extends State<Mylogin> {
                       children: [
                         TextButton(
                             onPressed: () {
-                              Navigator.pushNamed(context, 'register');
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const Myregister()),
+                              );
                             },
                             child: const Text(
                               'Sign Up',

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class Myregister extends StatefulWidget {
   const Myregister({Key? key}) : super(key: key);
@@ -8,6 +9,7 @@ class Myregister extends StatefulWidget {
 }
 
 class _MyregisterState extends State<Myregister> {
+  bool _passwordVisible = false;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -20,20 +22,20 @@ class _MyregisterState extends State<Myregister> {
           elevation: 0,
         ),
         backgroundColor: Colors.transparent,
-        body: Stack(
-          children: [
-            Container(
-              padding: const EdgeInsets.only(left: 35, top: 80),
-              child: const Text(
-                'Create \nAccocunt',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 33,
+        body: SingleChildScrollView(
+          child: Stack(
+            children: [
+              Container(
+                padding: const EdgeInsets.only(left: 35, top: 80),
+                child: const Text(
+                  'Create \nAccocunt',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 33,
+                  ),
                 ),
               ),
-            ),
-            SingleChildScrollView(
-              child: Container(
+              Container(
                 padding: EdgeInsets.only(
                     top: MediaQuery.of(context).size.height * 0.28,
                     right: 35,
@@ -51,6 +53,21 @@ class _MyregisterState extends State<Myregister> {
                       height: 30,
                     ),
                     TextField(
+                        obscureText: false,
+                        inputFormatters: <TextInputFormatter>[
+                          FilteringTextInputFormatter.digitsOnly,
+                          LengthLimitingTextInputFormatter(10)
+                        ],
+                        decoration: InputDecoration(
+                            fillColor: Colors.grey.shade200,
+                            filled: true,
+                            hintText: 'Mobile',
+                            border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10)))),
+                    const SizedBox(
+                      height: 30,
+                    ),
+                    TextField(
                         decoration: InputDecoration(
                             fillColor: Colors.grey.shade200,
                             filled: true,
@@ -61,70 +78,44 @@ class _MyregisterState extends State<Myregister> {
                       height: 30,
                     ),
                     TextField(
-                        obscureText: true,
-                        decoration: InputDecoration(
-                            fillColor: Colors.grey.shade200,
-                            filled: true,
-                            hintText: 'Password',
-                            border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(10)))),
-                    const SizedBox(
-                      height: 40,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        const Text(
-                          'Sign In',
-                          style: TextStyle(
-                              color: Color(0xff4c505b),
-                              fontSize: 27,
-                              fontWeight: FontWeight.w700),
-                        ),
-                        CircleAvatar(
-                          radius: 30,
-                          backgroundColor: const Color(0xff4c505b),
-                          child: IconButton(
-                            color: Colors.white,
-                            onPressed: () {},
-                            icon: const Icon(Icons.arrow_forward),
-                          ),
-                        )
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 40,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        TextButton(
+                      obscureText: true,
+                      decoration: InputDecoration(
+                          fillColor: Colors.grey.shade200,
+                          filled: true,
+                          hintText: 'Password',
+                          suffixIcon: IconButton(
+                            icon: Icon(
+                              _passwordVisible
+                                  ? Icons.visibility
+                                  : Icons.visibility_off,
+                            ),
                             onPressed: () {
-                              Navigator.pushNamed(context, 'register');
+                              setState(() {
+                                _passwordVisible = !_passwordVisible;
+                              });
                             },
-                            child: const Text(
-                              'Sign Up',
-                              style: TextStyle(
-                                  decoration: TextDecoration.underline,
-                                  fontSize: 18,
-                                  color: Color(0xff4c505b)),
-                            )),
-                        TextButton(
-                            onPressed: () {},
-                            child: const Text(
-                              'Forgot Password',
-                              style: TextStyle(
-                                  decoration: TextDecoration.underline,
-                                  fontSize: 18,
-                                  color: Color(0xff4c505b)),
-                            )),
-                      ],
+                          ),
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(10))),
                     ),
+                    const SizedBox(
+                      height: 40,
+                    ),
+                    ElevatedButton(
+                      onPressed: () {},
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.lightGreen,
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 135, vertical: 18),
+                          textStyle: const TextStyle(
+                              fontSize: 16, fontWeight: FontWeight.bold)),
+                      child: const Text('SIGN UP'),
+                    )
                   ],
                 ),
-              ),
-            )
-          ],
+              )
+            ],
+          ),
         ),
       ),
     );
