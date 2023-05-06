@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "755911311414",
+    "project_id": "geo-flutter-9fa48",
+    "storage_bucket": "geo-flutter-9fa48.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:755911311414:android:e094d62eabfff48ab65897",
+        "android_client_info": {
+          "package_name": "com.example.screen"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "755911311414-8h2ualm21aflqeuung6ccqs6kvmgsoh9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCfC0zRx89EO0DpuF-_kBVCG29bPwZQDIQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "755911311414-8h2ualm21aflqeuung6ccqs6kvmgsoh9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
